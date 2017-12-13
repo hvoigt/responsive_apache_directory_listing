@@ -21,7 +21,8 @@
     #
     #     /fancy/directory/listing
     #
-    SetEnv ROOT_PATH /path/on/the/apache/webserver/to/this/file
+    #SetEnv ROOT_PATH /var/www/cw.hvoigt.net/.htaccess
+    SetEnv ROOT_PATH /
 
 </IfModule>
 
@@ -82,14 +83,14 @@ Options +Indexes
 	BrowserMatch bMSIE !no-gzip !gzip-only-text/html
  
 	# Set header information for proxies.
-	Header append Vary User-Agent
+	#Header append Vary User-Agent
 
 </IfModule>
 
 <IfModule mod_headers.c>
 	
 	# Force the Internet Explorer to use its latest engine.
-	Header add X-UA-Compatible "IE=edge"
+	#Header add X-UA-Compatible "IE=edge"
 	
 </IfModule>
 
@@ -118,7 +119,386 @@ Options +Indexes
     #
     # Paste the content of the ".htaccess" textarea below this comment.
     #
+    # Set absolute paths to header and footer files.
 
-    
+    # Set absolute paths to header and footer files.
+    HeaderName /public/header.phtml
+    ReadmeName /public/footer.phtml
+
+    # Ignore all files in the public directory.
+    IndexIgnore /public
+
+    # Overwrite the default icons with a placeholder.
+    AddIcon (blank,/public/placeholder.png) ^^BLANKICON^^
+    AddIcon (directory,/public/placeholder.png) ^^DIRECTORY^^
+    AddIcon (directory-parent,/public/placeholder.png) ..
+
+    # Add file type icons and descriptions.
+    AddDescription "Microsoft Word Document" .doc
+    AddIcon (file-text-doc,/public/placeholder.png) .doc
+    AddDescription "Microsoft Word Open XML Document" .docx
+    AddIcon (file-text-docx,/public/placeholder.png) .docx
+    AddDescription "Log File" .log
+    AddIcon (file-text-log,/public/placeholder.png) .log
+    AddDescription "Outlook Mail Message" .msg
+    AddIcon (file-text-msg,/public/placeholder.png) .msg
+    AddDescription "OpenDocument Text Document" .odt
+    AddIcon (file-text-odt,/public/placeholder.png) .odt
+    AddDescription "Pages Document" .pages
+    AddIcon (file-text-pages,/public/placeholder.png) .pages
+    AddDescription "Rich Text Format File" .rtf
+    AddIcon (file-text-rtf,/public/placeholder.png) .rtf
+    AddDescription "LaTeX Source Document" .tex
+    AddIcon (file-text-tex,/public/placeholder.png) .tex
+    AddDescription "Plain Text File" .txt
+    AddIcon (file-text-txt,/public/placeholder.png) .txt
+    AddDescription "WordPerfect Document" .wpd
+    AddIcon (file-text-wpd,/public/placeholder.png) .wpd
+    AddDescription "Microsoft Works Word Processor Document" .wps
+    AddIcon (file-text-wps,/public/placeholder.png) .wps
+    AddDescription "Comma Separated Values File" .csv
+    AddIcon (file-data-csv,/public/placeholder.png) .csv
+    AddDescription "Data File" .dat
+    AddIcon (file-data-dat,/public/placeholder.png) .dat
+    AddDescription "Gerber File" .gbr
+    AddIcon (file-data-gbr,/public/placeholder.png) .gbr
+    AddDescription "GEDCOM Genealogy Data File" .ged
+    AddIcon (file-data-ged,/public/placeholder.png) .ged
+    AddDescription "Multi-Touch iBook" .ibooks
+    AddIcon (file-data-ibooks,/public/placeholder.png) .ibooks
+    AddDescription "Keynote Presentation" .key
+    AddIcon (file-data-key,/public/placeholder.png) .key
+    AddDescription "Mac OS X Keychain File" .keychain
+    AddIcon (file-data-keychain,/public/placeholder.png) .keychain
+    AddDescription "PowerPoint Slide Show" .pps
+    AddIcon (file-data-pps,/public/placeholder.png) .pps
+    AddDescription "PowerPoint Presentation" .ppt
+    AddIcon (file-data-ppt,/public/placeholder.png) .ppt
+    AddDescription "PowerPoint Open XML Presentation" .pptx
+    AddIcon (file-data-pptx,/public/placeholder.png) .pptx
+    AddDescription "Standard Data File" .sdf
+    AddIcon (file-data-sdf,/public/placeholder.png) .sdf
+    AddDescription "Consolidated Unix File Archive" .tar
+    AddIcon (file-data-tar,/public/placeholder.png) .tar
+    AddDescription "TurboTax 2012 Tax Return" .tax2012
+    AddIcon (file-data-tax2012,/public/placeholder.png) .tax2012
+    AddDescription "vCard File" .vcf
+    AddIcon (file-data-vcf,/public/placeholder.png) .vcf
+    AddDescription "XML File" .xml
+    AddIcon (file-data-xml,/public/placeholder.png) .xml
+    AddDescription "Audio Interchange File Format" .aif
+    AddIcon (file-audio-aif,/public/placeholder.png) .aif
+    AddDescription "Interchange File Format" .iff
+    AddIcon (file-audio-iff,/public/placeholder.png) .iff
+    AddDescription "Media Playlist File" .m3u
+    AddIcon (file-audio-m3u,/public/placeholder.png) .m3u
+    AddDescription "MPEG-4 Audio File" .m4a
+    AddIcon (file-audio-m4a,/public/placeholder.png) .m4a
+    AddDescription "MIDI File" .mid
+    AddIcon (file-audio-mid,/public/placeholder.png) .mid
+    AddDescription "MP3 Audio File" .mp3
+    AddIcon (file-audio-mp3,/public/placeholder.png) .mp3
+    AddDescription "MPEG-2 Audio File" .mpa
+    AddIcon (file-audio-mpa,/public/placeholder.png) .mpa
+    AddDescription "Real Audio File" .ra
+    AddIcon (file-audio-ra,/public/placeholder.png) .ra
+    AddDescription "WAVE Audio File" .wav
+    AddIcon (file-audio-wav,/public/placeholder.png) .wav
+    AddDescription "Windows Media Audio File" .wma
+    AddIcon (file-audio-wma,/public/placeholder.png) .wma
+    AddDescription "3GPP2 Multimedia File" .3g2
+    AddIcon (file-video-3g2,/public/placeholder.png) .3g2
+    AddDescription "3GPP Multimedia File" .3gp
+    AddIcon (file-video-3gp,/public/placeholder.png) .3gp
+    AddDescription "Advanced Systems Format File" .asf
+    AddIcon (file-video-asf,/public/placeholder.png) .asf
+    AddDescription "Microsoft ASF Redirector File" .asx
+    AddIcon (file-video-asx,/public/placeholder.png) .asx
+    AddDescription "Audio Video Interleave File" .avi
+    AddIcon (file-video-avi,/public/placeholder.png) .avi
+    AddDescription "Flash Video File" .flv
+    AddIcon (file-video-flv,/public/placeholder.png) .flv
+    AddDescription "iTunes Video File" .m4v
+    AddIcon (file-video-m4v,/public/placeholder.png) .m4v
+    AddDescription "Apple QuickTime Movie" .mov
+    AddIcon (file-video-mov,/public/placeholder.png) .mov
+    AddDescription "MPEG-4 Video File" .mp4
+    AddIcon (file-video-mp4,/public/placeholder.png) .mp4
+    AddDescription "MPEG Video File" .mpg
+    AddIcon (file-video-mpg,/public/placeholder.png) .mpg
+    AddDescription "Real Media File" .rm
+    AddIcon (file-video-rm,/public/placeholder.png) .rm
+    AddDescription "SubRip Subtitle File" .srt
+    AddIcon (file-video-srt,/public/placeholder.png) .srt
+    AddDescription "Shockwave Flash Movie" .swf
+    AddIcon (file-video-swf,/public/placeholder.png) .swf
+    AddDescription "DVD Video Object File" .vob
+    AddIcon (file-video-vob,/public/placeholder.png) .vob
+    AddDescription "Windows Media Video File" .wmv
+    AddIcon (file-video-wmv,/public/placeholder.png) .wmv
+    AddDescription "Rhino 3D Model" .3dm
+    AddIcon (file-3d-image-3dm,/public/placeholder.png) .3dm
+    AddDescription "3D Studio Scene" .3ds
+    AddIcon (file-3d-image-3ds,/public/placeholder.png) .3ds
+    AddDescription "3ds Max Scene File" .max
+    AddIcon (file-3d-image-max,/public/placeholder.png) .max
+    AddDescription "Wavefront 3D Object File" .obj
+    AddIcon (file-3d-image-obj,/public/placeholder.png) .obj
+    AddDescription "Bitmap Image File" .bmp
+    AddIcon (file-raster-image-bmp,/public/placeholder.png) .bmp
+    AddDescription "DirectDraw Surface" .dds
+    AddIcon (file-raster-image-dds,/public/placeholder.png) .dds
+    AddDescription "Graphical Interchange Format File" .gif
+    AddIcon (file-raster-image-gif,/public/placeholder.png) .gif
+    AddDescription "JPEG Image" .jpg
+    AddIcon (file-raster-image-jpg,/public/placeholder.png) .jpg
+    AddDescription "Portable Network Graphic" .png
+    AddIcon (file-raster-image-png,/public/placeholder.png) .png
+    AddDescription "Adobe Photoshop Document" .psd
+    AddIcon (file-raster-image-psd,/public/placeholder.png) .psd
+    AddDescription "PaintShop Pro Image" .pspimage
+    AddIcon (file-raster-image-pspimage,/public/placeholder.png) .pspimage
+    AddDescription "Targa Graphic" .tga
+    AddIcon (file-raster-image-tga,/public/placeholder.png) .tga
+    AddDescription "Thumbnail Image File" .thm
+    AddIcon (file-raster-image-thm,/public/placeholder.png) .thm
+    AddDescription "Tagged Image File" .tif
+    AddIcon (file-raster-image-tif,/public/placeholder.png) .tif
+    AddDescription "Tagged Image File Format" .tiff
+    AddIcon (file-raster-image-tiff,/public/placeholder.png) .tiff
+    AddDescription "YUV Encoded Image File" .yuv
+    AddIcon (file-raster-image-yuv,/public/placeholder.png) .yuv
+    AddDescription "Adobe Illustrator File" .ai
+    AddIcon (file-vector-image-ai,/public/placeholder.png) .ai
+    AddDescription "Encapsulated PostScript File" .eps
+    AddIcon (file-vector-image-eps,/public/placeholder.png) .eps
+    AddDescription "PostScript File" .ps
+    AddIcon (file-vector-image-ps,/public/placeholder.png) .ps
+    AddDescription "Scalable Vector Graphics File" .svg
+    AddIcon (file-vector-image-svg,/public/placeholder.png) .svg
+    AddDescription "Adobe InDesign Document" .indd
+    AddIcon (file-page-layout-indd,/public/placeholder.png) .indd
+    AddDescription "Picture File" .pct
+    AddIcon (file-page-layout-pct,/public/placeholder.png) .pct
+    AddDescription "Portable Document Format File" .pdf
+    AddIcon (file-page-layout-pdf,/public/placeholder.png) .pdf
+    AddDescription "Works Spreadsheet" .xlr
+    AddIcon (file-spreadsheet-xlr,/public/placeholder.png) .xlr
+    AddDescription "Excel Spreadsheet" .xls
+    AddIcon (file-spreadsheet-xls,/public/placeholder.png) .xls
+    AddDescription "Microsoft Excel Open XML Spreadsheet" .xlsx
+    AddIcon (file-spreadsheet-xlsx,/public/placeholder.png) .xlsx
+    AddDescription "Access 2007 Database File" .accdb
+    AddIcon (file-database-accdb,/public/placeholder.png) .accdb
+    AddDescription "Database File" .db
+    AddIcon (file-database-db,/public/placeholder.png) .db
+    AddDescription "Database File" .dbf
+    AddIcon (file-database-dbf,/public/placeholder.png) .dbf
+    AddDescription "Microsoft Access Database" .mdb
+    AddIcon (file-database-mdb,/public/placeholder.png) .mdb
+    AddDescription "Program Database" .pdb
+    AddIcon (file-database-pdb,/public/placeholder.png) .pdb
+    AddDescription "Structured Query Language Data File" .sql
+    AddIcon (file-database-sql,/public/placeholder.png) .sql
+    AddDescription "Android Package File" .apk
+    AddIcon (file-executable-apk,/public/placeholder.png) .apk
+    AddDescription "Mac OS X Application" .app
+    AddIcon (file-executable-app,/public/placeholder.png) .app
+    AddDescription "DOS Batch File" .bat
+    AddIcon (file-executable-bat,/public/placeholder.png) .bat
+    AddDescription "Common Gateway Interface Script" .cgi
+    AddIcon (file-executable-cgi,/public/placeholder.png) .cgi
+    AddDescription "DOS Command File" .com
+    AddIcon (file-executable-com,/public/placeholder.png) .com
+    AddDescription "Windows Executable File" .exe
+    AddIcon (file-executable-exe,/public/placeholder.png) .exe
+    AddDescription "Windows Gadget" .gadget
+    AddIcon (file-executable-gadget,/public/placeholder.png) .gadget
+    AddDescription "Java Archive File" .jar
+    AddIcon (file-executable-jar,/public/placeholder.png) .jar
+    AddDescription "Program Information File" .pif
+    AddIcon (file-executable-pif,/public/placeholder.png) .pif
+    AddDescription "VBScript File" .vb
+    AddIcon (file-executable-vb,/public/placeholder.png) .vb
+    AddDescription "Windows Script File" .wsf
+    AddIcon (file-executable-wsf,/public/placeholder.png) .wsf
+    AddDescription "Video Game Demo File" .dem
+    AddIcon (file-game-dem,/public/placeholder.png) .dem
+    AddDescription "Saved Game File" .gam
+    AddIcon (file-game-gam,/public/placeholder.png) .gam
+    AddDescription "Nintendo (NES) ROM File" .nes
+    AddIcon (file-game-nes,/public/placeholder.png) .nes
+    AddDescription "N64 Game ROM File" .rom
+    AddIcon (file-game-rom,/public/placeholder.png) .rom
+    AddDescription "Saved Game" .sav
+    AddIcon (file-game-sav,/public/placeholder.png) .sav
+    AddDescription "AutoCAD Drawing Database File" .dwg
+    AddIcon (file-cad-dwg,/public/placeholder.png) .dwg
+    AddDescription "Drawing Exchange Format File" .dxf
+    AddIcon (file-cad-dxf,/public/placeholder.png) .dxf
+    AddDescription "GPS Exchange File" .gpx
+    AddIcon (file-gis-gpx,/public/placeholder.png) .gpx
+    AddDescription "Keyhole Markup Language File" .kml
+    AddIcon (file-gis-kml,/public/placeholder.png) .kml
+    AddDescription "Google Earth Placemark File" .kmz
+    AddIcon (file-gis-kmz,/public/placeholder.png) .kmz
+    AddDescription "Active Server Page" .asp
+    AddIcon (file-web-asp,/public/placeholder.png) .asp
+    AddDescription "Active Server Page Extended File" .aspx
+    AddIcon (file-web-aspx,/public/placeholder.png) .aspx
+    AddDescription "Internet Security Certificate" .cer
+    AddIcon (file-web-cer,/public/placeholder.png) .cer
+    AddDescription "ColdFusion Markup File" .cfm
+    AddIcon (file-web-cfm,/public/placeholder.png) .cfm
+    AddDescription "Certificate Signing Request File" .csr
+    AddIcon (file-web-csr,/public/placeholder.png) .csr
+    AddDescription "Cascading Style Sheet" .css
+    AddIcon (file-web-css,/public/placeholder.png) .css
+    AddDescription "Hypertext Markup Language File" .htm
+    AddIcon (file-web-htm,/public/placeholder.png) .htm
+    AddDescription "Hypertext Markup Language File" .html
+    AddIcon (file-web-html,/public/placeholder.png) .html
+    AddDescription "JavaScript File" .js
+    AddIcon (file-web-js,/public/placeholder.png) .js
+    AddDescription "Java Server Page" .jsp
+    AddIcon (file-web-jsp,/public/placeholder.png) .jsp
+    AddDescription "PHP Source Code File" .php
+    AddIcon (file-web-php,/public/placeholder.png) .php
+    AddDescription "PHP Web Page" .phtml
+    AddIcon (file-web-phtml,/public/placeholder.png) .phtml
+    AddDescription "Rich Site Summary" .rss
+    AddIcon (file-web-rss,/public/placeholder.png) .rss
+    AddDescription "Extensible Hypertext Markup Language File" .xhtml
+    AddIcon (file-web-xhtml,/public/placeholder.png) .xhtml
+    AddDescription "Chrome Extension" .crx
+    AddIcon (file-plugin-crx,/public/placeholder.png) .crx
+    AddDescription "Mac OS X Plug-in" .plugin
+    AddIcon (file-plugin-plugin,/public/placeholder.png) .plugin
+    AddDescription "Windows Font File" .fnt
+    AddIcon (file-font-fnt,/public/placeholder.png) .fnt
+    AddDescription "Generic Font File" .fon
+    AddIcon (file-font-fon,/public/placeholder.png) .fon
+    AddDescription "OpenType Font" .otf
+    AddIcon (file-font-otf,/public/placeholder.png) .otf
+    AddDescription "TrueType Font" .ttf
+    AddIcon (file-font-ttf,/public/placeholder.png) .ttf
+    AddDescription "Windows Cabinet File" .cab
+    AddIcon (file-system-cab,/public/placeholder.png) .cab
+    AddDescription "Windows Control Panel Item" .cpl
+    AddIcon (file-system-cpl,/public/placeholder.png) .cpl
+    AddDescription "Windows Cursor" .cur
+    AddIcon (file-system-cur,/public/placeholder.png) .cur
+    AddDescription "Windows 8 Desktop Theme Pack File" .deskthemepack
+    AddIcon (file-system-deskthemepack,/public/placeholder.png) .deskthemepack
+    AddDescription "Dynamic Link Library" .dll
+    AddIcon (file-system-dll,/public/placeholder.png) .dll
+    AddDescription "Windows Memory Dump" .dmp
+    AddIcon (file-system-dmp,/public/placeholder.png) .dmp
+    AddDescription "Device Driver" .drv
+    AddIcon (file-system-drv,/public/placeholder.png) .drv
+    AddDescription "Mac OS X Icon Resource File" .icns
+    AddIcon (file-system-icns,/public/placeholder.png) .icns
+    AddDescription "Icon File" .ico
+    AddIcon (file-system-ico,/public/placeholder.png) .ico
+    AddDescription "Windows File Shortcut" .lnk
+    AddIcon (file-system-lnk,/public/placeholder.png) .lnk
+    AddDescription "Windows System File" .sys
+    AddIcon (file-system-sys,/public/placeholder.png) .sys
+    AddDescription "Configuration File" .cfg
+    AddIcon (file-settings-cfg,/public/placeholder.png) .cfg
+    AddDescription "Windows Initialization File" .ini
+    AddIcon (file-settings-ini,/public/placeholder.png) .ini
+    AddDescription "Outlook Profile File" .prf
+    AddIcon (file-settings-prf,/public/placeholder.png) .prf
+    AddDescription "BinHex 40 Encoded File" .hqx
+    AddIcon (file-encoded-hqx,/public/placeholder.png) .hqx
+    AddDescription "Multi-Purpose Internet Mail Message File" .mim
+    AddIcon (file-encoded-mim,/public/placeholder.png) .mim
+    AddDescription "Uuencoded File" .uue
+    AddIcon (file-encoded-uue,/public/placeholder.png) .uue
+    AddDescription "7-Zip Compressed File" .7z
+    AddIcon (file-compressed-7z,/public/placeholder.png) .7z
+    AddDescription "Comic Book RAR Archive" .cbr
+    AddIcon (file-compressed-cbr,/public/placeholder.png) .cbr
+    AddDescription "Debian Software Package" .deb
+    AddIcon (file-compressed-deb,/public/placeholder.png) .deb
+    AddDescription "Gnu Zipped Archive" .gz
+    AddIcon (file-compressed-gz,/public/placeholder.png) .gz
+    AddDescription "Mac OS X Installer Package" .pkg
+    AddIcon (file-compressed-pkg,/public/placeholder.png) .pkg
+    AddDescription "WinRAR Compressed Archive" .rar
+    AddIcon (file-compressed-rar,/public/placeholder.png) .rar
+    AddDescription "Red Hat Package Manager File" .rpm
+    AddIcon (file-compressed-rpm,/public/placeholder.png) .rpm
+    AddDescription "StuffIt X Archive" .sitx
+    AddIcon (file-compressed-sitx,/public/placeholder.png) .sitx
+    AddDescription "Compressed Tarball File" .targz
+    AddIcon (file-compressed-targz,/public/placeholder.png) .targz
+    AddDescription "Zipped File" .zip
+    AddIcon (file-compressed-zip,/public/placeholder.png) .zip
+    AddDescription "Extended Zip File" .zipx
+    AddIcon (file-compressed-zipx,/public/placeholder.png) .zipx
+    AddDescription "Binary Disc Image" .bin
+    AddIcon (file-disk-image-bin,/public/placeholder.png) .bin
+    AddDescription "Cue Sheet File" .cue
+    AddIcon (file-disk-image-cue,/public/placeholder.png) .cue
+    AddDescription "Mac OS X Disk Image" .dmg
+    AddIcon (file-disk-image-dmg,/public/placeholder.png) .dmg
+    AddDescription "Disc Image File" .iso
+    AddIcon (file-disk-image-iso,/public/placeholder.png) .iso
+    AddDescription "Media Disc Image File" .mdf
+    AddIcon (file-disk-image-mdf,/public/placeholder.png) .mdf
+    AddDescription "Toast Disc Image" .toast
+    AddIcon (file-disk-image-toast,/public/placeholder.png) .toast
+    AddDescription "Virtual CD" .vcd
+    AddIcon (file-disk-image-vcd,/public/placeholder.png) .vcd
+    AddDescription "C/C++ Source Code File" .c
+    AddIcon (file-developer-c,/public/placeholder.png) .c
+    AddDescription "Java Class File" .class
+    AddIcon (file-developer-class,/public/placeholder.png) .class
+    AddDescription "C++ Source Code File" .cpp
+    AddIcon (file-developer-cpp,/public/placeholder.png) .cpp
+    AddDescription "Visual C# Source Code File" .cs
+    AddIcon (file-developer-cs,/public/placeholder.png) .cs
+    AddDescription "Document Type Definition File" .dtd
+    AddIcon (file-developer-dtd,/public/placeholder.png) .dtd
+    AddDescription "Adobe Flash Animation" .fla
+    AddIcon (file-developer-fla,/public/placeholder.png) .fla
+    AddDescription "C/C++/Objective-C Header File" .h
+    AddIcon (file-developer-h,/public/placeholder.png) .h
+    AddDescription "Java Source Code File" .java
+    AddIcon (file-developer-java,/public/placeholder.png) .java
+    AddDescription "Lua Source File" .lua
+    AddIcon (file-developer-lua,/public/placeholder.png) .lua
+    AddDescription "Objective-C Implementation File" .m
+    AddIcon (file-developer-m,/public/placeholder.png) .m
+    AddDescription "Perl Script" .pl
+    AddIcon (file-developer-pl,/public/placeholder.png) .pl
+    AddDescription "Python Script" .py
+    AddIcon (file-developer-py,/public/placeholder.png) .py
+    AddDescription "Bash Shell Script" .sh
+    AddIcon (file-developer-sh,/public/placeholder.png) .sh
+    AddDescription "Visual Studio Solution File" .sln
+    AddIcon (file-developer-sln,/public/placeholder.png) .sln
+    AddDescription "Swift Source Code File" .swift
+    AddIcon (file-developer-swift,/public/placeholder.png) .swift
+    AddDescription "Visual C++ Project" .vcxproj
+    AddIcon (file-developer-vcxproj,/public/placeholder.png) .vcxproj
+    AddDescription "Xcode Project" .xcodeproj
+    AddIcon (file-developer-xcodeproj,/public/placeholder.png) .xcodeproj
+    AddDescription "Backup File" .bak
+    AddIcon (file-backup-bak,/public/placeholder.png) .bak
+    AddDescription "Temporary File" .tmp
+    AddIcon (file-backup-tmp,/public/placeholder.png) .tmp
+    AddDescription "Chrome Partially Downloaded File" .crdownload
+    AddIcon (file-misc-crdownload,/public/placeholder.png) .crdownload
+    AddDescription "iCalendar File" .ics
+    AddIcon (file-misc-ics,/public/placeholder.png) .ics
+    AddDescription "Windows Installer Package" .msi
+    AddIcon (file-misc-msi,/public/placeholder.png) .msi
+    AddDescription "Partially Downloaded File" .part
+    AddIcon (file-misc-part,/public/placeholder.png) .part
+    AddDescription "BitTorrent File" .torrent
+    AddIcon (file-misc-torrent,/public/placeholder.png) .torrent
     
 </IfModule>
