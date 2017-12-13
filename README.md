@@ -52,3 +52,5 @@ Open the [all.css](https://github.com/countzero/responsive_apache_directory_list
 License
 -----------
 *Responsive Apache Directory Listing* is licensed under the [Creative Commons - Attribution-NonCommercial 3.0 Unported](http://creativecommons.org/licenses/by-nc/3.0/).
+
+Originally developed by [Finn Rudolph](http://finnrudolph.com/legal-disclosure) this is a fork of his [original github repository](https://github.com/countzero/responsive_apache_directory_listing) with my personal adjustments. It is used in my [online CW Trainer](http://cw.hvoigt.net/) which is also released open source under GPL v3.0. You can find [its code on my github](https://github.com/hvoigt/hamcode).
